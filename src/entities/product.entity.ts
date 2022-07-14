@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
 export class Product {
@@ -8,21 +8,21 @@ export class Product {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ unique: true })
   code: string;
 
-  @Column()
+  @Column({ nullable: true })
   image: string;
 
   @Column()
   price: number;
 
   @Column()
-  category: number;
+  category: string;
 
   @Column()
   minimum_quantity: number;
 
   @Column()
-  discount_rate: Date;
+  discount_rate: number;
 }
